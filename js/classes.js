@@ -16,7 +16,7 @@ class Sprite {
         this.framesMax = framesMax
         this.framesCurrent = 0
         this.framesElapsed = 0
-        this.framesHold = 20
+        this.framesHold = 30
         this.offset = offset
     }
 
@@ -90,7 +90,7 @@ class Fighter extends Sprite {
         this.health = 100
         this.framesCurrent = 0
         this.framesElapsed = 0
-        this.framesHold = 7
+        this.framesHold = 10
         this.sprites = sprites
         this.dead = false
         this.won = false
