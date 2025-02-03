@@ -356,6 +356,10 @@ const enemy = new Fighter({
             imagesrc: "./resources/spritesplayer2/mirrored/Ryublock.png",
             framesMax: 1,
         },
+        blockmirrored: {
+            imagesrc: "./resources/spritesplayer2/mirrored/Ryublock.png",
+            framesMax: 1,
+        },
         takehitmirrored: {
             imagesrc: "./resources/spritesplayer2/mirrored/Ryuhit.png",
             framesMax: 3,
