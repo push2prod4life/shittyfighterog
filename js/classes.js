@@ -32,7 +32,6 @@ class Sprite {
     }
 
     draw() {
-        console.log(this.image);
         c.drawImage(
             this.image,
             this.framesCurrent * (this.image.width / this.framesMax),
@@ -109,7 +108,12 @@ class Fighter extends Sprite {
 
 
     update() {
-        this.draw()
+        this.image.onload = () => {
+            this.draw();
+        };
+        this.image.onerror = () => {
+            console.log("This image never had the makings of a sprite");
+        };
         if (!this.dead) { this.animateframes() }
 
         this.attackbox.position.x = this.position.x - this.attackbox.offset.x
