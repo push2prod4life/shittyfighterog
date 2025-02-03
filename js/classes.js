@@ -32,17 +32,22 @@ class Sprite {
     }
 
     draw() {
-        c.drawImage(
-            this.image,
-            this.framesCurrent * (this.image.width / this.framesMax),
-            0,
-            this.image.width / this.framesMax,
-            this.image.height,
-            this.position.x - this.offset.x,
-            this.position.y - this.offset.y,
-            (this.image.width / this.framesMax) * this.scale,
-            this.image.height * this.scale,
-        )
+        this.image.onload = () => {
+            c.drawImage(
+                this.image,
+                this.framesCurrent * (this.image.width / this.framesMax),
+                0,
+                this.image.width / this.framesMax,
+                this.image.height,
+                this.position.x - this.offset.x,
+                this.position.y - this.offset.y,
+                (this.image.width / this.framesMax) * this.scale,
+                this.image.height * this.scale,
+            )
+        };
+        this.image.onerror = () => {
+            console.log("This image never had the makings of a sprite");
+        };
     }
 
     update() {
@@ -108,12 +113,7 @@ class Fighter extends Sprite {
 
 
     update() {
-        this.image.onload = () => {
-            this.draw();
-        };
-        this.image.onerror = () => {
-            console.log("This image never had the makings of a sprite");
-        };
+        this.draw();
         if (!this.dead) { this.animateframes() }
 
         this.attackbox.position.x = this.position.x - this.attackbox.offset.x
