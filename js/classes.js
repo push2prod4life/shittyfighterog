@@ -32,22 +32,17 @@ class Sprite {
     }
 
     draw() {
-        this.image.onload = () => {
-            c.drawImage(
-                this.image,
-                this.framesCurrent * (this.image.width / this.framesMax),
-                0,
-                this.image.width / this.framesMax,
-                this.image.height,
-                this.position.x - this.offset.x,
-                this.position.y - this.offset.y,
-                (this.image.width / this.framesMax) * this.scale,
-                this.image.height * this.scale,
-            )
-        };
-        this.image.onerror = () => {
-            console.log("This image never had the makings of a sprite");
-        };
+        c.drawImage(
+            this.image,
+            this.framesCurrent * (this.image.width / this.framesMax),
+            0,
+            this.image.width / this.framesMax,
+            this.image.height,
+            this.position.x - this.offset.x,
+            this.position.y - this.offset.y,
+            (this.image.width / this.framesMax) * this.scale,
+            this.image.height * this.scale,
+        )
     }
 
     update() {
@@ -105,12 +100,14 @@ class Fighter extends Sprite {
 
         for (const sprite in this.sprites) {
             sprites[sprite].image = new Image()
-            sprites[sprite].image.src = sprites[sprite].imagesrc
+
+            this.image.onload = () => {
+                sprites[sprite].image.src = sprites[sprite].imagesrc
+            };
+
             sprites[sprite].image.framesMax = this.framesMax
         }
     }
-
-
 
     update() {
         this.draw();

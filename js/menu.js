@@ -3,7 +3,6 @@ var menutheme = new Audio("./resources/sounds/menu/menutheme.mp3")
 menutheme.volume = 0.5
 menutheme.loop = true
 menutheme.playbackRate = 1.2
-menutheme.play()
 
 
 //gets the container text and the control button

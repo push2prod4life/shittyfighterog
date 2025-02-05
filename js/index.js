@@ -52,23 +52,23 @@ var gamehasbegun = false
 function countdown() {
     sfx.fightingmusic.volume = 0.3
     setTimeout(() => {
-        sfx.three.play()
+        // sfx.three.play()
         document.getElementById("displaytext").innerHTML = "THREE"
     }, 1000)
 
     setTimeout(() => {
-        sfx.two.play()
+        // sfx.two.play()
         document.getElementById("displaytext").innerHTML = "TWO"
     }, 2000)
 
     setTimeout(() => {
-        sfx.one.play()
+        // sfx.one.play()
         document.getElementById("displaytext").innerHTML = "ONE"
     }, 3000)
 
     setTimeout(() => {
-        sfx.fight.play()
-        sfx.fightingmusic.play()
+        // sfx.fight.play()
+        // sfx.fightingmusic.play()
         document.getElementById("displaytext").innerHTML = "FIGHT"
     }, 4000)
 
